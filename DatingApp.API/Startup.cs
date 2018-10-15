@@ -43,9 +43,7 @@ namespace DatingApp.API
 											GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
 						ValidateIssuer = false,
 						ValidateAudience = false
-					};
-        
-								);
+					});
     
 		}
        
@@ -64,6 +62,7 @@ namespace DatingApp.API
 
         // app.UseHttpsRedirection();
         app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        app.UseAuthentication();
         app.UseMvc();
     }
 }
